@@ -12,4 +12,5 @@ var OrderDetails = func(r *mux.Router){
 	r.HandleFunc("/orders/{orderId}", controllers.GetOrderHandler).Methods("GET")
 	r.HandleFunc("/orders/{orderId}", controllers.UpdateOrderHandler).Methods("PUT")
 	r.HandleFunc("/orders/{orderId}", controllers.DeleteOrderHandler).Methods("DELETE")
+	r.HandleFunc("/health", controllers.Healthhandler).Methods("GET")
 }

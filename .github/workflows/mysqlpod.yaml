@@ -1,0 +1,16 @@
+apiVersion: v1
+Kind: Pod
+metadata: 
+    name: mysql-pod
+    app: go-API
+spec:
+    containers:
+        -name: mysql
+        image: mysql
+        ports:
+            -containersPort: 3036
+        env:
+            -name: mysql_user
+            value: "root"
+            -name: mysql_password
+            value: "1234"        

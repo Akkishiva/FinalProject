@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: webapi-service          #service name
+  labels:
+    name: webapi-service         #service name 
+    app: go-API                  #app name
+  namespace: default
+spec:
+  ports:
+  - port: 8080
+    targetPort: 8080    #targetPort refers to the port on the Pods that the Service should forward incoming traffic to.
+    #nodePort: 30080    #The nodePort field is set to 30080, indicating that the API application will be accessible externally through this port.
+  selector:
+    name: apipod       #name of the pod
+    app: go-API        #application name

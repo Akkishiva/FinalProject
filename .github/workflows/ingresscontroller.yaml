@@ -1,0 +1,13 @@
+apiVersion: extensions/v1betal  #specifies the version of the Kubernetes API to use.
+kind: Ingress
+metadata: 
+    name: ingress-web-api
+spec:
+    
+    rules:                          #specify the routing rules for the Ingress.
+    - host: orderdetails.com        #specifies the hostname for which the Ingress will route traffic. 
+      http:
+        paths:
+           - backend:
+                serviceName: go-API  #specifies the name of the Service to which the traffic should be directed.
+                servicePort: 80      #specifies the port of the Service to which the traffic should be forwarded. In this case, it is set to 80.  
