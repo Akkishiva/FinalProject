@@ -1,0 +1,21 @@
+name: Continous Integration
+on: push
+jobs:
+    run_code_checks:
+     runs-on: ubuntu-latest
+     steps:
+        - name: Checkout Repo Code
+          uses: actions/checkout@v3
+        - name: Set Up Go
+          uses: actions/setup-go@v3
+          with:
+           go-version: 1.19
+        - name: Build Docker Image
+          run: docker build --tag myimage .
+        - name: publish to registry
+          uses: elgohr/Publish-Docker-Github-Action@master
+          with:
+            name: forbsey/go-github-actions
+            username: ${{secrects.DOCKER_USERNAME}}
+            password: ${{secrects.DOCKER_PASSWORD}} 
+

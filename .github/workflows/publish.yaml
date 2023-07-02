@@ -1,0 +1,19 @@
+name: Build and Publish
+on: push
+env:
+  DOCKER_USERNAME: akkishiva
+  DOCKER_PASSWORD: Omganesh@06
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    steps: 
+    - uses: actions/checkout@v3
+    - name: Build Docker Image
+      run: docker build -f Dockerfile . --tag myapp
+
+    - name: publish to registry
+      uses: elgohr/Publish-Docker-Github-Action@master
+      with:
+        name: forbsey/go-github-actions
+        username: ${{env.DOCKER_USERNAME }}
+        password: ${{env.DOCKER_PASSWORD }}    
