@@ -11,6 +11,6 @@ jobs:
     - name: publish to registry
       uses: elgohr/Publish-Docker-Github-Action@master
       with:
-        name: akkishiva/myrepo
+        name: akkishiva/myrepo:myapp
         username: ${{secrets.DOCKER_USERNAME }}
         password: ${{secrets.DOCKER_PASSWORD }}    
